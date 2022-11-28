@@ -28,7 +28,7 @@ if (getBooks.length > 0) {
   for (let i = 0; i < getBooks.length; i++) {
     book += `<div id="book${i}"><p>${getBooks[i][0]}</p>
     <p>${getBooks[i][1]}</p>
-    <button id="remove_btn" value="${i}>Remove</button><br>
+    <button id="button${i}" value=${i}>Remove</button><br>
   <hr>
   </div>`
   }
