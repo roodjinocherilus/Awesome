@@ -3,8 +3,8 @@ const author = document.getElementById('author');
 const buttonAdd = document.getElementById('add');
 let booksData = [];
 check = localStorage.getItem('books');
-if(check != null){
-booksData = JSON.parse(check);
+if (check != null) {
+  booksData = JSON.parse(check);
 }
 
 buttonAdd.addEventListener('click', () => {
@@ -19,20 +19,31 @@ buttonAdd.addEventListener('click', () => {
 
 let getBooks = localStorage.getItem('books');
 getBooks = JSON.parse(getBooks);
-console.log(getBooks);
 
 
 if (getBooks.length > 0) {
   const booksSection = document.getElementById('books');
-  let book=''
+  let book = ''
   for (let i = 0; i < getBooks.length; i++) {
     book += `<div id="book${i}"><p>${getBooks[i][0]}</p>
     <p>${getBooks[i][1]}</p>
-    <button id="button${i}" value=${i}>Remove</button><br>
+    <button class="button" value=${i}>Remove</button><br>
   <hr>
   </div>`
   }
-  console.log(book);
   booksSection.innerHTML = `${book}`
 }
+
+const deleteBtn = document.querySelectorAll('.button');
+
+deleteBtn.forEach(deleteBtn => {
+  deleteBtn.addEventListener("click", () => {
+    let index = deleteBtn.value;
+    getBooks.splice(index, 1);
+    getBooks = JSON.stringify(getBooks);
+    localStorage.setItem('books', getBooks);
+    location.reload()
+  });
+});
+
 
