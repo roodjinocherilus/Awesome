@@ -14,6 +14,7 @@ buttonAdd.addEventListener('click', () => {
   booksData.push(bookData);
   const allData = JSON.stringify(booksData);
   localStorage.setItem('books', allData);
+  // eslint-disable-next-line no-restricted-globals
   location.reload();
 });
 
@@ -23,7 +24,7 @@ getBooks = JSON.parse(getBooks);
 if (getBooks.length > 0) {
   const booksSection = document.getElementById('books');
   let book = '';
-  for (let i = 0; i < getBooks.length; i+=1) {
+  for (let i = 0; i < getBooks.length; i += 1) {
     book += `<div id="book${i}"><p>${getBooks[i][0]}</p>
     <p>${getBooks[i][1]}</p>
     <button class="button" value=${i}>Remove</button><br>
@@ -41,6 +42,7 @@ deleteBtn.forEach((deleteBtn) => {
     getBooks.splice(index, 1);
     getBooks = JSON.stringify(getBooks);
     localStorage.setItem('books', getBooks);
+    // eslint-disable-next-line no-restricted-globals
     location.reload();
   });
 });
