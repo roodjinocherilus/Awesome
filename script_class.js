@@ -43,10 +43,8 @@ function Display() {
     const booksSection = document.getElementById('books');
     let book = '';
     for (let i = 0; i < getBooks.length; i += 1) {
-      book += `<div id="book${i}"><p>${getBooks[i].title}</p>
-      <p>${getBooks[i].author}</p>
-      <button class="button" value=${i}>Remove</button><br>
-      <hr>
+      book += `<div class="div-books" id="book${i}"><p>${getBooks[i].title} by ${getBooks[i].author}</p>
+      <button class="button" value=${i}>Remove</button>
       </div>`;
     }
     booksSection.innerHTML = `${book}`;
