@@ -1,5 +1,5 @@
+// eslint-disable-next-line max-classes-per-file
 const buttonAdd = document.getElementById('add');
-
 let index = 0;
 
 class Book {
@@ -10,34 +10,32 @@ class Book {
 }
 
 class Library {
-  constructor(book, storage) {
+  constructor(book, storage, index) {
     this.book = book;
     this.library = storage;
+    this.index = index;
   }
+
   add() {
     if (this.library === null) {
       this.library = [];
     }
-    let data = this.library
+    const data = this.library;
     data.push(this.book);
     const allData = JSON.stringify(data);
     localStorage.setItem('books', allData);
-    message.classList.add('show');
   }
-  remove (){
-    
-    let getBooks = localStorage.getItem('books');
-    getBooks=JSON.parse(getBooks);
-    getBooks.splice(index, 1);
-    
+
+  remove() {
+    let getData = localStorage.getItem('books');
+    getData = JSON.parse(getData);
+    getData.splice(this.index, 1);
+    getData = JSON.stringify(getData);
+    localStorage.setItem('books', getData);
   }
-  
 }
 
-
-
-
-function Display () {
+function Display() {
   let getBooks = localStorage.getItem('books');
   getBooks = JSON.parse(getBooks);
 
@@ -52,10 +50,9 @@ function Display () {
       </div>`;
     }
     booksSection.innerHTML = `${book}`;
-  } else {
-    return;
   }
 }
+Display();
 
 function GetContent() {
   const title = document.getElementById('title');
@@ -67,33 +64,32 @@ function GetContent() {
     message.classList.remove('show');
     return;
   }
-  const book = new Book(titleBook, authorBook)
+  const book = new Book(titleBook, authorBook);
   let storage = localStorage.getItem('books');
   storage = JSON.parse(storage);
 
-  const library = new Library(book, storage)
+  const library = new Library(book, storage);
   library.add();
   Display();
+  // eslint-disable-next-line no-restricted-globals
+  location.reload();
 }
-Display()
+
 buttonAdd.addEventListener('click', GetContent);
 
+const deleteBtn = document.querySelectorAll('.button');
 
-
-function deleteContent () {
-const library = new Library()
+function GetIndex() {
+  const library = new Library(null, null, index);
   library.remove();
   Display();
-
+  // eslint-disable-next-line no-restricted-globals
+  location.reload();
 }
 
-
-const removeBtn = document.querySelectorAll('.button');
-
-removeBtn.forEach((button) => {
-  button.addEventListener('click', ()=> {
-    index=button.value;
-    console.log(index);
+deleteBtn.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    index = btn.value;
+    GetIndex();
   });
 });
-
