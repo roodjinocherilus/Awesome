@@ -34,3 +34,12 @@ h1 {
 #add {
   margin-bottom: 10px;
 }
+
+#message {
+  color: red;
+  text-align: center;
+}
+
+.show {
+  display: none;
+}
