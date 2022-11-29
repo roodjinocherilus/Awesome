@@ -1,5 +1,7 @@
 const buttonAdd = document.getElementById('add');
 
+let index = 0;
+
 class Book {
   constructor(title, author) {
     this.title = title;
@@ -22,7 +24,18 @@ class Library {
     localStorage.setItem('books', allData);
     message.classList.add('show');
   }
+  remove (){
+    
+    let getBooks = localStorage.getItem('books');
+    getBooks=JSON.parse(getBooks);
+    getBooks.splice(index, 1);
+    
+  }
+  
 }
+
+
+
 
 function Display () {
   let getBooks = localStorage.getItem('books');
@@ -64,3 +77,23 @@ function GetContent() {
 }
 Display()
 buttonAdd.addEventListener('click', GetContent);
+
+
+
+function deleteContent () {
+const library = new Library()
+  library.remove();
+  Display();
+
+}
+
+
+const removeBtn = document.querySelectorAll('.button');
+
+removeBtn.forEach((button) => {
+  button.addEventListener('click', ()=> {
+    index=button.value;
+    console.log(index);
+  });
+});
+
