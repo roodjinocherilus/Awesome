@@ -10,21 +10,47 @@
 </head>
 
 <body>
-  <div class="awesomebooks">
-  <h1>All awesome books</h1><br>
+  <nav id="navbar">
+    <p id="navTitle">Awesome Books</p>
+    <div>
+      <ul id="nav-list">
+        <li class="list1"><a class="link_nav" id="listLink" href="#">List</a></li>
+        <li class="list2"><a class="link_nav" id="addLink" href="#">Add new</a></li>
+        <li class="list3"><a class="link_nav" id="contactLink" href="#">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+  <p id="date"></p>
 
-  <div id="books">
+  <div id="list-books" class="">
+    <div class="awesomebooks">
+      <h1>All awesome books</h1>
+      <div id="books"></div>
+    </div>
   </div>
-  <hr class="divisor">
 
-  <h2 class="new_book">Add a new book</h2>
-  <form action="#" class="form">
+  <h2 id="subtitle" class="new_book">Add a new book</h2>
+  <form id="add-books" action="#" class="form">
     <input required class="input" id="title" type="text" placeholder="Title">
     <input required class="input" id="author" type="text" placeholder="Author">
     <p class="show" id="message">*Title and Author are required</p>
     <button id="add" type="button">Add</button>
   </form>
-</div>
+
+  <div id="contact" class="contact">
+    <h2 class="new_book">Contact information</h2>
+    <p id="text-contact">Do have ay questions or you just want to say "Hello"?<br>&nbsp You can reach out to us!</p>
+    <ul id="information">
+      <li>Our e-mail: sandro_mipb@hotmail.com</li>
+      <li>Our phone number: +52 233 324 2323</li>
+      <li>Our address: Evergreen Terrace 742, Springfield, EEUU</li>
+    </ul>
+  </div>
+
+  <footer>
+    <p id="copyright">Copyright: This project is MIT licensed.</p>
+  </footer>
+
 </body>
 <script src="./script_class.js"></script>
 
