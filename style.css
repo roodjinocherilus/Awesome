@@ -17,7 +17,6 @@ h1 {
 }
 
 .form {
-  width: 50%;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -25,7 +24,6 @@ h1 {
 }
 
 .input {
-  margin-bottom: 10px;
   background-color: white;
   margin-bottom: 10px;
   border: 2px solid black;
@@ -42,7 +40,6 @@ h1 {
   padding: 0 5px 0 5px;
   box-shadow: 3px 3px black;
   align-self: flex-end;
-
 }
 
 #message {
