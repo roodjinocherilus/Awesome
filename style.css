@@ -53,12 +53,12 @@ body {
 }
 
 #list-books {
-margin-bottom: 100px;
+  margin-bottom: 100px;
 }
 
 h1 {
   text-align: center;
-  margin: 0px 0 20px 0;
+  margin: 0 0 20px 0;
 }
 
 .awesomebooks {
@@ -143,7 +143,7 @@ footer {
   display: flex;
   justify-content: center;
   position: fixed;
-  bottom: 0px;
+  bottom: 0;
   width: 98%;
   background-color: white;
 }
@@ -167,7 +167,7 @@ footer {
 }
 
 .blue {
-  color: rgb(0, 70, 248)
+  color: rgb(0, 70, 248);
 }
 
 .blue:link {
