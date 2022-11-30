@@ -97,3 +97,51 @@ deleteBtn.forEach((btn) => {
     GetIndex();
   });
 });
+
+document.getElementById('date').innerHTML = Date();
+
+const list = document.getElementById('list-books');
+const subtitle = document.getElementById('subtitle');
+const form = document.getElementById('add-books');
+const contact = document.getElementById('contact');
+
+const btnList = document.getElementById('listLink');
+const btnAddNew = document.getElementById('addLink');
+const btnContact = document.getElementById('contactLink');
+
+function List() {
+  list.classList.remove('hide');
+  subtitle.classList.add('hide');
+  form.classList.add('hide');
+  contact.classList.add('hide');
+  btnList.classList.add('blue');
+  btnList.classList.remove('link_nav');
+  btnAddNew.classList.add('link_nav');
+  btnContact.classList.add('link_nav');
+}
+function AddNew() {
+  list.classList.add('hide');
+  subtitle.classList.remove('hide');
+  form.classList.remove('hide');
+  contact.classList.add('hide');
+  btnAddNew.classList.add('blue');
+  btnAddNew.classList.remove('link_nav');
+  btnList.classList.add('link_nav');
+  btnContact.classList.add('link_nav');
+}
+function Contact() {
+  list.classList.add('hide');
+  subtitle.classList.add('hide');
+  form.classList.add('hide');
+  contact.classList.remove('hide');
+  btnContact.classList.add('blue');
+  btnContact.classList.remove('link_nav');
+  btnList.classList.add('link_nav');
+  btnAddNew.classList.add('link_nav');
+}
+
+btnList.addEventListener('click', List);
+
+btnAddNew.addEventListener('click', AddNew);
+
+btnContact.addEventListener('click', Contact);
